@@ -1,0 +1,29 @@
+#Python script for rockyou zip file brute force attack.
+#simple but effective script, could be adjusted to account for different encryptions too
+
+import zipfile
+
+def extractFile(zfile, password):
+    try:
+        zfile.extractall(pwd=bytes(password, 'utf-8')) #defining the encryption type, and to extract document.
+        return password
+    except:
+        return #if fails, say nothing
+
+def main():
+    zfile = zipfile.ZipFile('enc.zip') #name of the enc folder in full
+    passFile = open('rockyou.txt') #.txt of the password list
+    for line in passFile.readlines(): #what to do with the test file, read 1 line at a time
+        password = line.strip('\n') #new line
+        guess = extractFile(zfile, password)
+        if guess:
+            print('The password for the encrypted file = ' + password)
+            break
+
+
+if __name__ == '__main__':
+    main()
+
+
+#admittedly I was reliant on a tutorial for this script, but I have tried to understand how it works by adding in my own comments.
+#I think it could be refined, and once I learn how to optimise, I will update accordingly.
