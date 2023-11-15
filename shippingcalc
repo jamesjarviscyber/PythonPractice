@@ -1,0 +1,33 @@
+#A simple shipping calculator, may revisit to improve as I have some ideas I don't know how to execute!
+
+print("Welcome to Sal's Shipping Store!")
+
+weight = 41.5
+print("Your package weighs: " + str(weight) + "lbs")
+#Ground Shipping
+if weight <= 2:
+  ground_shipping = (weight * 1.5) + 20 
+elif weight > 2 and weight <= 6:
+  ground_shipping = (weight * 3.0) + 20
+elif weight > 6 and weight <= 10:
+  ground_shipping = (weight * 4.0) + 20
+else:
+  ground_shipping = (weight * 4.75) + 20
+
+print("Normal shipping would cost: $" + str(ground_shipping))
+
+#Premium reminder
+ground_Shipping_Premium = 125.00
+print("Ground Shipping Premium: $" + str(ground_Shipping_Premium))
+
+#Drone shipping, how fancy
+if weight <= 2:
+  drone_shipping = (weight * 4.5)  
+elif weight > 2 and weight <= 6:
+  drone_shipping = (weight * 9.0) 
+elif weight > 6 and weight <= 10:
+  drone_shipping = (weight * 12.0) 
+else:
+  drone_shipping = (weight * 14.25)
+print("To ship by drone would cost: $" + str(drone_shipping))
+
